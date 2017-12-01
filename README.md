@@ -43,6 +43,7 @@ Run the above commands from a terminal or command shell.
 The install will take 20-30 minutes to complete.
 
 To use the Ubuntu desktop, run the following commands after the initial install is complete:
+    
     vagrant halt
     vagrant up
 
