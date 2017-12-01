@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
 
   # Provision the base Ubuntu box with the Reed CS tools
-  config.vm.provision "shell", path: "https://github.com/reed-college/cs-virtualmachine/provisioner.sh"
+  config.vm.provision "shell", path: "provisioner.sh"
 
   ### Virtualbox specific configurations are below.
   # Additional options describer here http://docs.vagrantup.com/v2/virtualbox/configuration.html
@@ -33,5 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.gui = true
   # Increasing the memory on the VM is required for successfull compilation of R modules.
     vb.memory = "4096"
+  # Increasing video memory
+    vb.customize ["modifyvm", :id, "--vram", "128"]
   end
 end

@@ -20,8 +20,7 @@ sudo apt install -y ubuntu-desktop
 sudo apt install -y git || echo "Clang installation failed"
 echo 'Git installed successfully!'
 
-#adding python tool for apt management
-#sudo apt-get install -y python-software-properties
+#installing gcc
 sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 sudo apt update
 sudo apt -y install gcc || echo "git installation failed" 

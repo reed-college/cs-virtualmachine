@@ -5,6 +5,8 @@ __pycache__/
 
 # C extensions
 *.so
+# vagrant directory
+.vagrant/
 
 # Distribution / packaging
 .Python
