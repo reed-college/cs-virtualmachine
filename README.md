@@ -67,6 +67,4 @@ Then run:
     vagrant box update
     vagrant up
 
-This will remove the older version of the virtual machine, and provision the new version. Note, files saved in the cs-virtualmachine directory are not affected by the "vagrant destroy" command.[1](#fn2)
-
-1.  Older box versions are not deleted by updates. These can be manually removed using the `vagrant box remove --box-version <box-version> <box-name>` command (replace `<box-name>` and `<box-version>` with the name and version of the box you want to remove). Use the `vagrant box list` command to list installed boxes and their version. [↩︎](#ffn2)
+This will remove the older version of the virtual machine, and provision the new version. Note, files saved in the cs-virtualmachine directory are not affected by the "vagrant destroy" command.
