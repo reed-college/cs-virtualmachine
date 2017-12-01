@@ -14,7 +14,11 @@ start_seconds="$(date +%s)"
 
 sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove
 
-sudo apt install -y ubuntu-desktop
+# installed ubuntu desktop
+sudo apt install -y ubuntu-desktop || echo "Desktop environment installation failed"
+
+# installing Virtualbox guest additions
+sudo apt install -y virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11 || echo "Virtualbox guest additions failed to install"
 
 #installing git
 sudo apt install -y git || echo "Clang installation failed"
