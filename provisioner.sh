@@ -14,11 +14,8 @@ start_seconds="$(date +%s)"
 
 sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove
 
-# install ubuntu desktop
-sudo apt install -y ubuntu-desktop || echo "Desktop environment installation failed"
-
 # install Virtualbox guest additions
-sudo apt install -y virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11 || echo "Virtualbox guest additions failed to install"
+# sudo apt install -y virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11 || echo "Virtualbox guest additions failed to install"
 
 #install git
 sudo apt install -y git || echo "Clang installation failed"
@@ -63,6 +60,9 @@ sudo apt install -y libssl-dev libcurl4-openssl-dev libxml2-dev || echo "tidyver
 echo 'dependencies for tidyverse installed successfully!'
 sudo R -e "install.packages('tidyverse', repos='https://ftp.osuosl.org/pub/cran/', dep = TRUE)"
 echo 'tidyverse successfully installed!'
+
+# install ubuntu desktop
+sudo apt install -y ubuntu-desktop || echo "Desktop environment installation failed"
 
 end_seconds="$(date +%s)"
 echo "-----------------------------"
