@@ -18,7 +18,7 @@ Basic setup:
 *   Install [Vagrant](https://www.vagrantup.com/downloads.html)
 *   If you are using Windows install the [Visual C++ 2010 Redistributable Package](http://www.microsoft.com/en-us/download/details.aspx?id=8328)
 
-## Ubuntu 17.04 Virtual Machine
+## Installation of the Virtual Machine
 
 We provide a customised [`Vagrantfile`](https://www.vagrantup.com/docs/vagrantfile/) via a Github repository. This allows us to provide updates as the lab configuration changes. Apart from this the standard Vagrant workflows apply.
 
@@ -26,17 +26,19 @@ Mac and Linux setup with Git:
 
     git clone https://github.com/reed-college/cs-virtualmachine
     cd cs-virtualmachine
+    vagrant plugin install vagrant-vbguest
     vagrant up
     vagrant ssh
-    sudo adduser [YOUR_USERNAME]
+    sudo adduser --gecos "" [YOUR_USERNAME]
 
 Mac and Linux setup without Git:
 
     wget https://github.com/reed-college/cs-virtualmachine/archive/master.zip
     unzip master.zip
+    vagrant plugin install vagrant-vbguest
     vagrant up
     vagrant ssh
-    sudo adduser [YOUR_USERNAME]
+    sudo adduser --gecos "" [YOUR_USERNAME]
 
 Run the above commands from a terminal or command shell.
 
