@@ -15,7 +15,7 @@ A number of packages need to be installed, install all that apply to your platfo
 Basic setup:
 
 *   Install [VirtualBox](https://www.virtualbox.org)
-*   Install [Vagrant](https://www.vagrantup.com/downloads.html) (recommendation is to use the download links on the Vagrant site instead of package manager versions)
+*   Install [Vagrant](https://www.vagrantup.com/downloads.html) (recommendation is to use the download links on the Vagrant site instead of any package manager versions)
 *   If you are using Windows install the [Visual C++ 2010 Redistributable Package](http://www.microsoft.com/en-us/download/details.aspx?id=8328)
 
 ## Installation of the Virtual Machine
