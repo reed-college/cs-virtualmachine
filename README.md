@@ -29,7 +29,7 @@ Mac and Linux setup with Git:
     vagrant plugin install vagrant-vbguest
     vagrant up
     vagrant ssh
-    sudo adduser --gecos "" [YOUR_USERNAME]
+    sudo adduser --gecos "" [YOUR_USERNAME] sudo
 
 Mac and Linux setup without Git:
 
@@ -38,7 +38,7 @@ Mac and Linux setup without Git:
     vagrant plugin install vagrant-vbguest
     vagrant up
     vagrant ssh
-    sudo adduser --gecos "" [YOUR_USERNAME]
+    sudo adduser --gecos "" [YOUR_USERNAME] sudo
 
 Run the above commands from a terminal or command shell.
 
