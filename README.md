@@ -63,14 +63,14 @@ The repository can be updated using standard [Git workflows](https://help.github
 
     git pull
 
-Then to install only the new tools:
+To install only the new tools, you run the following command:
 
     vagrant reload --provision
+
+To completely rebuild the virtual machine, you run the following commands:
+
     vagrant destroy
     vagrant box update
     vagrant up
-To completely rebuild the virtual machine, you can run the following:
-    vagrant destroy
-    vagrant box update
-    vagrant up
-Note, in both cases, files saved in the cs-virtualmachine directory are not affected by the "vagrant destroy" command.
+    
+Note, in both cases, the files you saved in the cs-virtualmachine directory are not affected by the "vagrant destroy" command.
