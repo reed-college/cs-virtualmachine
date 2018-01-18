@@ -12,8 +12,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # For a complete reference,  please see the online documentation at docs.vagrantup.com/v2/.
 
   # Default Ubuntu 17.04 Box 
-  config.vm.box = "ubuntu/zesty64"
+  config.vm.box = "bento/ubuntu-17.10"
   config.vm.hostname = "ubuntu"
+
+  #if Dir.glob("#{File.dirname(__FILE__)}/.vagrant/machines/default/*").empty?
+  #  print "Username: "
+  #  username = STDIN.gets.chomp
+  #  print "Password: "
+  #  pw = STDIN.gets.chomp
+  #  cmd = "sudo adduser --gecos "" #{username} -p #{pw}; sudo usermod -aG sudo #{username}"
+  #  config.vm.provision :shell, :inline => cmd, :privileged => false
+  #end
 
   # Forward Agent
   #
@@ -36,5 +45,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.memory = "4096"
   # Increase video memory
     vb.customize ["modifyvm", :id, "--vram", "128"]
+    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
 end
