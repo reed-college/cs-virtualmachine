@@ -32,6 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Provision the base Ubuntu box with the Reed CS tools
   config.vm.provision "shell", path: "provisioner.sh"
+  config.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=775,fmode=774"]
 
   ### Virtualbox specific configurations are below.
   # Additional options describer here http://docs.vagrantup.com/v2/virtualbox/configuration.html
