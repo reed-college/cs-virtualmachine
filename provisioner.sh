@@ -86,7 +86,9 @@ sudo apt install -y chromium-browser || echo "chromium installation failed"
 echo 'chromium successfully installed'
 
 # install ubuntu desktop
-sudo apt install -y ubuntu-desktop || echo "Desktop environment installation failed"
+sudo apt install -y ubuntu-desktop --no-install-recommends || echo "Desktop environment installation failed"
+
+sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove && sudo apt clean
 
 end_seconds="$(date +%s)"
 echo "-----------------------------"
