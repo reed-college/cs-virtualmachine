@@ -44,10 +44,11 @@ Run the above commands from a terminal or command shell.
 
 The install will take 20-30 minutes to complete.
 
-To use the Ubuntu desktop, run the following commands after the initial install is complete:
+To use the Ubuntu desktop, logout of the virtual machine and run the following command after the initial install is complete:
     
-    vagrant halt
-    vagrant up
+    vagrant reload
+
+This will restart the virtual machine, and you will be given the Ubuntu login screen.
 
 You can also edit the [`Vagrantfile`](https://www.vagrantup.com/docs/vagrantfile/) to change the amount of memory and cores used by the virtual machine. The [VirtualBox provider reference](https://www.vagrantup.com/docs/virtualbox/configuration.html) has more details.
 
@@ -63,11 +64,14 @@ The repository can be updated using standard [Git workflows](https://help.github
 
     git pull
 
-Then run:
+To install only the new tools, you run the following command:
 
-    vagrant halt
+    vagrant reload --provision
+
+To completely rebuild the virtual machine, you run the following commands:
+
     vagrant destroy
     vagrant box update
     vagrant up
-
-This will remove the older version of the virtual machine, and provision the new version. Note, files saved in the cs-virtualmachine directory are not affected by the "vagrant destroy" command.
+    
+Note, in both cases, the files you saved in the cs-virtualmachine directory are not affected by the "vagrant destroy" command.
