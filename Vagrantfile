@@ -11,18 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here
   # For a complete reference,  please see the online documentation at docs.vagrantup.com/v2/.
 
-  # Default Ubuntu 17.04 Box 
+  # Default Ubuntu 17.10 Box 
   config.vm.box = "bento/ubuntu-17.10"
   config.vm.hostname = "ubuntu"
-
-  #if Dir.glob("#{File.dirname(__FILE__)}/.vagrant/machines/default/*").empty?
-  #  print "Username: "
-  #  username = STDIN.gets.chomp
-  #  print "Password: "
-  #  pw = STDIN.gets.chomp
-  #  cmd = "sudo adduser --gecos "" #{username} -p #{pw}; sudo usermod -aG sudo #{username}"
-  #  config.vm.provision :shell, :inline => cmd, :privileged => false
-  #end
 
   # Forward Agent
   #
@@ -32,6 +23,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Provision the base Ubuntu box with the Reed CS tools
   config.vm.provision "shell", path: "provisioner.sh"
+
+  # Make the synced folder writable for any user in the vagrant group
   config.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=775,fmode=774"]
 
   ### Virtualbox specific configurations are below.
@@ -44,7 +37,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.gui = true
   # Increase the memory on the VM is required for successfull compilation of R modules.
     vb.memory = "4096"
-  # Increase video memory
+  # Increase video memory and turn on 3d accelaration.
     vb.customize ["modifyvm", :id, "--vram", "128"]
     vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
