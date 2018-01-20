@@ -75,6 +75,10 @@ echo 'go installed successfully'
 sudo apt install -y spim || echo "spim installation failed"
 echo 'spim installed successfully'
 
+#install logisim
+sudo apt install -y logisim || echo "logisim installation failed"
+echo 'logisim installed successfully'
+
 #install sublime text
 sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
 sudo apt update
@@ -85,8 +89,15 @@ echo 'sublime-text successfully installed!'
 sudo apt install -y chromium-browser || echo "chromium installation failed"
 echo 'chromium successfully installed'
 
-# install ubuntu desktop
+#install ubuntu desktop
 sudo apt install -y ubuntu-desktop --no-install-recommends || echo "Desktop environment installation failed"
+echo 'Ubuntu desktop successfully installed'
+
+#install gnome terminal and set necessary locale
+sudo apt install -y gnome-terminal || echo "Terminal installation failed"
+echo 'Gnome terminal successfully installed'
+
+sudo update-locale LANG=en_US.UTF-8
 
 sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove && sudo apt clean
 
