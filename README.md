@@ -54,7 +54,7 @@ You can also edit the [`Vagrantfile`](https://www.vagrantup.com/docs/vagrantfile
 
 ## Shared Folder
 
-Any files saved in the cs-virtualmachine directory will be visible inside the virtual machine. On the virtual machine, the files are available in the /vagrant directory.
+Any files saved in the cs-virtualmachine directory will be visible inside the virtual machine. On the virtual machine, the files are available in the ~/vagrant directory.
 
 ## Updating
 
