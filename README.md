@@ -29,7 +29,7 @@ Mac and Linux setup with Git:
     vagrant plugin install vagrant-vbguest
     vagrant up
     vagrant ssh
-    USER=[your username]; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER
+    USER=[your username]; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER; ln -s /vagrant /home/$USER/vagrant
 
 Mac and Linux setup without Git:
 
