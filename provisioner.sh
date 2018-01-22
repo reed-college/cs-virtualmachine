@@ -49,23 +49,10 @@ echo 'SML/NJ installation successfully!'
 sudo apt install -y r-base || echo "R installation failed" 
 echo 'R installed successfully!'
 
-#install RStudio
-sudo apt install -y gdebi-core
-wget -q https://s3.amazonaws.com/rstudio-dailybuilds/rstudio-xenial-1.1.392-amd64.deb
-sudo gdebi -n rstudio-xenial-1.1.392-amd64.deb || echo "Rstudio installation failed" 
-sudo rm -f rstudio-xenial-1.1.392-amd64.deb
-echo 'RStudio successfully installed!'
-
 #install vim-gtk and emacs
 sudo apt install -y vim-gtk || echo "Vim-gtk installation failed" 
 sudo apt install -y emacs || echo "Emacs installation failed" 
 echo 'emacs and vim-gtk successfully installed!'
-
-#install tidyverse R package
-sudo apt install -y libssl-dev libcurl4-openssl-dev libxml2-dev || echo "tidyverse dependency installation failed"
-echo 'dependencies for tidyverse installed successfully!'
-sudo R -e "install.packages('tidyverse', repos='https://ftp.osuosl.org/pub/cran/', dep = TRUE)"
-echo 'tidyverse successfully installed!'
 
 #install go
 sudo apt install -y golang-go || echo "go installation failed"
