@@ -56,6 +56,26 @@ You can also edit the [`Vagrantfile`](https://www.vagrantup.com/docs/vagrantfile
 
 Any files saved in the cs-virtualmachine directory will be visible inside the virtual machine. On the virtual machine, the files are available in the ~/vagrant directory.
 
+## Basic Commands
+
+    vagrant suspend
+"vagrant suspend" will save the current running state of the machine and stop it. When you are ready to begin working again, just run "vagrant up", and it will be resumed from where you left off. The main benefit of this method is that it is super fast, usually taking only 5 to 10 seconds to stop and start your work. The downside is that the virtual machine still eats up your disk space, and requires even more disk space to store all the state of the virtual machine RAM on disk.
+
+    vagrant halt
+"vagrant halt" will gracefully shut down the guest operating system and power down the guest machine. You can use vagrant up when you are ready to boot it again. The benefit of this method is that it will cleanly shut down your machine, preserving the contents of disk, and allowing it to be cleanly started again. The downside is that it'll take some extra time to start from a cold boot, and the guest machine still consumes disk space.
+
+    vagrant up
+"vagrant up" starts the machine.
+
+    vagrant destroy
+"vagrant destroy" will remove all traces of the guest machine from your system. It'll stop the guest machine, power it down, and remove all of the guest hard disks. Again, when you are ready to work again, just issue a vagrant up. The benefit of this is that no cruft is left on your machine. The disk space and RAM consumed by the guest machine is reclaimed and your host machine is left clean. The downside is that "vagrant up" to get working again will take some extra time since it has to reimport the machine and re-provision it.
+
+    vagrant ssh
+SSHs into the virtual machine as the vagrant user. 
+
+    vagrant reload
+The equivalent of running a halt followed by an up. This command is necessary to pick up changes made to the Vagrantfile. Additionally, changes to the provisioning script can be applied by adding the --provision flag.
+ 
 ## Updating
 
 As new tools are needed, the repository and boxes can be updated.
