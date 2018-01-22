@@ -38,11 +38,11 @@ Mac and Linux setup without Git:
     vagrant plugin install vagrant-vbguest
     vagrant up
     vagrant ssh
-    USER=[your username]; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER
+    USER=[your username]; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER; ln -s /vagrant /home/$USER/vagrant
 
 Run the above commands from a terminal or command shell.
 
-The install will take 20-30 minutes to complete.
+The install will take 10-20 minutes to complete.
 
 To use the Ubuntu desktop, logout of the virtual machine and run the following command after the initial install is complete:
     
