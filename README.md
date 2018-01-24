@@ -29,7 +29,7 @@ Mac and Linux setup with Git:
     vagrant plugin install vagrant-vbguest
     vagrant up
     vagrant ssh
-    USER=[your username]; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER; ln -s /vagrant /home/$USER/
+    USER=[your username]; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
 
 Mac and Linux setup without Git:
 
@@ -38,7 +38,7 @@ Mac and Linux setup without Git:
     vagrant plugin install vagrant-vbguest
     vagrant up
     vagrant ssh
-    USER=[your username]; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER; ln -s /vagrant /home/$USER/
+    USER=[your username]; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
 
 Run the above commands from a terminal or command shell.
 
@@ -98,6 +98,6 @@ Note, in both cases, the files you saved in the cs-virtualmachine directory are 
 ## Troubleshooting
 
 #### GUI does not load after installation
-You may not be on the latest version of VirtualBox's Guest Additions. In the cs-virtualmachine folder, run "vagrant vbguest --do install" and then perform a "vagrant reload"
+You may not be on the latest version of VirtualBox's Guest Additions. First, do a "git pull" to make sure you are on the latest version of this repository. Then download the following file https://www.virtualbox.org/download/testcase/VBoxGuestAdditions_5.2.7-120326.iso. Next, in the cs-virtualmachine folder, run "vagrant vbguest --do install --iso [PATH TO .iso FILE]" and then perform a "vagrant reload"
     
 
