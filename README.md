@@ -98,6 +98,6 @@ Note, in both cases, the files you saved in the cs-virtualmachine directory are 
 ## Troubleshooting
 
 #### GUI does not load after installation
-You may not be on the latest version of VirtualBox's Guest Additions. In the cs-virtualmachine folder, run "vagrant vbguest --do install" and then perform a "vagrant reload"
+You may not be on the latest version of VirtualBox's Guest Additions. In the cs-virtualmachine folder, run "vagrant vbguest --do install --iso https://www.virtualbox.org/download/testcase/VBoxGuestAdditions_5.2.7-120326.iso" and then perform a "vagrant reload"
     
 
