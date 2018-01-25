@@ -6,7 +6,7 @@ The [Computer Science department](http://www.reed.edu/computer-science/) provide
 
 *   A 64-bit processor
 *   At least 4GB of RAM
-*   At least 25GB of free disk space
+*   At least 10GB of free disk space
 
 ## Setup
 
