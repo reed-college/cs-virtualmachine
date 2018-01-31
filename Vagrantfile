@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "ubuntu"
 
   # Using VirtualBox Guest Additions 5.2.7 since 5.2.6 fails to load GUI
-  # config.vbguest.iso_path = "https://www.virtualbox.org/download/testcase/VBoxGuestAdditions_5.2.7-120326.iso"
+  # config.vbguest.iso_path = "https://www.virtualbox.org/download/testcase/VBoxGuestAdditions_5.2.7-120528.iso"
   config.vbguest.no_install = true
   # Forward Agent
   #
