@@ -8,11 +8,12 @@
 # are used. You can also bring up your environment and explicitly not run provisioners 
 # by specifying '--no-provision'.
 set -e
+DEBIAN_FRONTEND=noninteractive
 # By storing the date now, we can calculate the duration of provisioning at the
 # end of this script.
 start_seconds="$(date +%s)"
 
-sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove && sudo apt clean
+sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade && sudo apt -y autoremove && sudo apt clean
 
 #install git
 sudo apt install -y git || echo "Clang installation failed"
@@ -59,8 +60,9 @@ sudo apt install -y golang-go || echo "go installation failed"
 echo 'go installed successfully'
 
 #install spim
-sudo apt install -y spim || echo "spim installation failed"
-echo 'spim installed successfully'
+wget -O qtspim_9.1.20_linux64.deb "https://downloads.sourceforge.net/project/spimsimulator/qtspim_9.1.20_linux64.deb?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fspimsimulator%2Ffiles%2Fqtspim_9.1.20_linux64.deb%2Fdownload&ts=1518130564"
+sudo dpkg -i qtspim_9.1.20_linux64.deb || echo "qtspim installation failed"
+echo 'qtspim installed successfully'
 
 #install logisim
 sudo apt install -y logisim || echo "logisim installation failed"
@@ -86,7 +88,7 @@ echo 'Gnome terminal successfully installed'
 
 sudo update-locale LANG=en_US.UTF-8
 
-sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove && sudo apt clean
+sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade && sudo apt -y autoremove && sudo apt clean
 
 end_seconds="$(date +%s)"
 echo "-----------------------------"
