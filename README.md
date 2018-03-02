@@ -31,7 +31,8 @@ Mac and Linux setup with Git:
     vagrant ssh
     USER=[your username]; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
 
-Mac and Linux setup without Git:
+
+Note: replace [your username] with your desired username (e.g. USER=johndoe). Mac and Linux setup without Git:
 
     wget https://github.com/reed-college/cs-virtualmachine/archive/master.zip
     unzip master.zip
@@ -40,7 +41,7 @@ Mac and Linux setup without Git:
     vagrant ssh
     USER=[your username]; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
 
-Run the above commands from a terminal or command shell.
+Note: replace [your username] with your desired username (e.g. USER=johndoe). Run the above commands from a terminal or command shell.
 
 The install will take 10-20 minutes to complete.
 
