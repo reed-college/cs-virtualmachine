@@ -15,9 +15,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "bento/ubuntu-17.10"
   config.vm.hostname = "ubuntu"
 
-  # Using VirtualBox Guest Additions 5.2.7 since 5.2.6 fails to load GUI
-  # config.vbguest.iso_path = "https://www.virtualbox.org/download/testcase/VBoxGuestAdditions_5.2.7-120528.iso"
-  # config.vbguest.no_install = true
   # Forward Agent
   #
   # If true, then any SSH connections made will enable agent forwarding.
@@ -38,8 +35,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Boot with graphical user interface ("GUI"), this can be commented out if you
   # prefer a non-GUI vm
     vb.gui = true
-  # Increase the memory on the VM is required for successfull compilation of R modules.
+  # You can increase the memory and cpu allocated to the virtual machine.
+  # Note: ensure that the values are appropriate for your hardware. For instance,
+  # you should ideally set the memory and cpu count to half of your hardware.
+  # Larger values can significantly degrade performance on your host machine.
     vb.memory = "4096"
+    vb.cpus = "1"
   # Increase video memory and turn on 3d accelaration.
     vb.customize ["modifyvm", :id, "--vram", "128"]
     vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
