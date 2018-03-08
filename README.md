@@ -20,7 +20,7 @@ Basic setup:
 
 # Installation of the Virtual Machine
 
-We provide a customised [`Vagrantfile`](https://www.vagrantup.com/docs/vagrantfile/) via a Github repository. This allows us to provide updates as the lab configuration changes. Apart from this the standard Vagrant workflows apply.
+We provide a customized [`Vagrantfile`](https://www.vagrantup.com/docs/vagrantfile/) via a Github repository. This allows us to provide updates as the lab configuration changes. Apart from this the standard Vagrant workflows apply.
 
 Mac and Linux setup with Git:
 
@@ -98,13 +98,14 @@ Note, in both cases, the files you saved in the cs-virtualmachine directory are 
 
 # Troubleshooting
 
+
 ## GUI does not load after installation
 You may not be on the latest version of VirtualBox's Guest Additions. First, do a "git pull" to make sure you are on the latest version of this repository. Then run the following command:
 
     vagrant vbguest --do install
     
 
-### Sluggish performance inside the virtual machine
+## Sluggish performance inside the virtual machine
 The virtual machine is initially configured with quite low CPU and memory allocation. If you have more powerful hardware, you can get better performance from the virtual machine by increasing its CPU and memory.
 
 #### If you start and stop the virtual machine in the Virtualbox UI ####
@@ -116,7 +117,7 @@ The settings are available under the Motherboard and Processor tabs here:
 
 The settings can be modified in the Vagrantfile by changing vb.cpus and vb.memory. Starting the vm using vagrant up will overwrite any settings you have made in the Virtualbox UI.
 
-**Note**: I recommend initially setting these values conservatilvely. Setting the vm memory to half of available memory and cpu count to 1 is a good start. The values can be increased until a performant virtual machine is configured without degrading performance on the host machine.
+**Note**: I recommend initially setting these values conservatively. Setting the vm memory to half of available memory and cpu count to 1 is a good start. The values can be increased until a performant virtual machine is configured without degrading performance on the host machine.
     
     
 
