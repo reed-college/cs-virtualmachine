@@ -29,7 +29,7 @@ Mac and Linux setup with Git:
     vagrant plugin install vagrant-vbguest
     vagrant up
     vagrant ssh
-    USER=username; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
+    USER=username; sudo adduser --gecos "" $USER; sudo usermod -aG sudo,vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
 
 **Note: replace "username" with your desired username (e.g. USER=boydm).** Mac and Linux setup without Git:
 
@@ -38,7 +38,7 @@ Mac and Linux setup with Git:
     vagrant plugin install vagrant-vbguest
     vagrant up
     vagrant ssh
-    USER=username; sudo adduser --gecos "" $USER; sudo usermod -aG sudo $USER; sudo usermod -aG vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
+    USER=username; sudo adduser --gecos "" $USER; sudo usermod -aG sudo,vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
 
 **Note: replace "username" with your desired username (e.g. USER=boydm).** Run the above commands from a terminal or command shell.
 
