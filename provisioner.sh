@@ -83,6 +83,10 @@ sudo apt install -y ubuntu-desktop --no-install-recommends || echo "Desktop envi
 echo 'Ubuntu desktop successfully installed'
 
 #install gnome terminal and set necessary locale
+sudo apt install -y gnuplot || echo "Gnuplot installation failed"
+echo 'Gnuplot successfully installed'
+
+#install gnome terminal and set necessary locale
 sudo apt install -y gnome-terminal || echo "Terminal installation failed"
 echo 'Gnome terminal successfully installed'
 
