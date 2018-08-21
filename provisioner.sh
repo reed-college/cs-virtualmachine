@@ -16,13 +16,13 @@ start_seconds="$(date +%s)"
 sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade && sudo apt -y autoremove && sudo apt clean
 
 #install git
-sudo apt install -y git || echo "Clang installation failed"
+sudo apt install -y git || echo "Git installation failed"
 echo 'Git installed successfully!'
 
 #install gcc
 sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 sudo apt update
-sudo apt -y install gcc || echo "git installation failed" 
+sudo apt -y install gcc || echo "gcc installation failed" 
 echo 'GCC 7 installed successfully!'
 
 #install valgrind
@@ -35,12 +35,8 @@ sudo apt install -y bison || echo "bison installation failed"
 echo 'flex and bison installed successfully'
 
 #install latest clang version
-wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-sudo apt-add-repository "deb http://apt.llvm.org/zesty/ llvm-toolchain-zesty-5.0 main"
-sudo apt update
-sudo apt install -y clang-5.0 || echo "Clang installation failed" 
-sudo ln -sf /usr/lib/llvm-5.0/bin/clang /usr/bin/clang
-echo 'Clang-5 installed successfully!'
+sudo apt install -y clang || echo "Clang installation failed" 
+echo 'Clang-6 installed successfully!'
 
 #install SML/NJ
 sudo apt install -y smlnj || echo "SML/NJ installation failed" 
@@ -68,10 +64,13 @@ echo 'qtspim installed successfully'
 sudo apt install -y logisim || echo "logisim installation failed"
 echo 'logisim installed successfully'
 
+#fix bug with logisim and ATK wrapper
+sudo sed -i "s/^assistive_technologies=/#&/" /etc/java-11-openjdk/accessibility.properties
+
 #install sublime text
-sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
-sudo apt update
-sudo apt install -y sublime-text-installer || echo "Sublime-text installation failed"
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sudo apt-add-repository "deb https://download.sublimetext.com/ apt/stable/"
+sudo apt install sublime-text || echo "Sublime-text installation failed"
 echo 'sublime-text successfully installed!'
 
 #install chromium

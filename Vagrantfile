@@ -11,8 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here
   # For a complete reference,  please see the online documentation at docs.vagrantup.com/v2/.
 
-  # Default Ubuntu 17.10 Box 
-  config.vm.box = "bento/ubuntu-17.10"
+  # Default Ubuntu 18.04 Box 
+  config.vm.box = "bento/ubuntu-18.04"
   config.vm.hostname = "ubuntu"
 
   # Forward Agent
