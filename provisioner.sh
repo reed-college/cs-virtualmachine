@@ -19,11 +19,15 @@ sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Optio
 sudo apt install -y git || echo "Git installation failed"
 echo 'Git installed successfully!'
 
-#install gcc
+#install gcc-8
 sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 sudo apt update
 sudo apt -y install gcc-8 || echo "gcc-8 installation failed" 
 echo 'GCC 8 installed successfully!'
+
+#Set gcc-8 as default
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
 
 #install valgrind
 sudo apt install -y valgrind || echo "valgrind installation failed"
