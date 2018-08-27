@@ -22,8 +22,8 @@ echo 'Git installed successfully!'
 #install gcc
 sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 sudo apt update
-sudo apt -y install gcc || echo "gcc installation failed" 
-echo 'GCC 7 installed successfully!'
+sudo apt -y install gcc-8 || echo "gcc-8 installation failed" 
+echo 'GCC 8 installed successfully!'
 
 #install valgrind
 sudo apt install -y valgrind || echo "valgrind installation failed"
