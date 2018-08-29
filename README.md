@@ -16,7 +16,7 @@ Basic setup:
 
 *   Install [VirtualBox](https://www.virtualbox.org) (you will need at least version 5.2 of VirtualBox for the setup to work correctly)
 *   Install [Vagrant](https://www.vagrantup.com/downloads.html) (recommendation is to use the download links on the Vagrant site instead of any package manager versions)
-*   If you are using Windows install the [Visual C++ 2010 Redistributable Package](http://www.microsoft.com/en-us/download/details.aspx?id=8328) and Git for Windows (https://gitforwindows.org/)
+*   If you are using Windows install the [Visual C++ 2010 Redistributable Package](http://www.microsoft.com/en-us/download/details.aspx?id=8328) and Git for Windows (https://github.com/git-for-windows/git/releases/download/v2.18.0.windows.1/Git-2.18.0-64-bit.exe)
 
 # Installation of the Virtual Machine
 
