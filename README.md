@@ -16,13 +16,13 @@ Basic setup:
 
 *   Install [VirtualBox](https://www.virtualbox.org) (you will need at least version 5.2 of VirtualBox for the setup to work correctly)
 *   Install [Vagrant](https://www.vagrantup.com/downloads.html) (recommendation is to use the download links on the Vagrant site instead of any package manager versions)
-*   If you are using Windows install the [Visual C++ 2010 Redistributable Package](http://www.microsoft.com/en-us/download/details.aspx?id=8328)
+*   If you are using Windows install the [Visual C++ 2010 Redistributable Package](http://www.microsoft.com/en-us/download/details.aspx?id=8328) and Git for Windows (https://gitforwindows.org/)
 
 # Installation of the Virtual Machine
 
 We provide a customized [`Vagrantfile`](https://www.vagrantup.com/docs/vagrantfile/) via a Github repository. This allows us to provide updates as the lab configuration changes. Apart from this the standard Vagrant workflows apply.
 
-Mac and Linux setup with Git:
+On Mac and Linux, open a terminal window and run the following commands. On Windows, open Git Bash and run the commands:
 
     git clone https://github.com/reed-college/cs-virtualmachine
     cd cs-virtualmachine
@@ -31,18 +31,9 @@ Mac and Linux setup with Git:
     vagrant ssh
     USER=username; sudo adduser --gecos "" $USER; sudo usermod -aG sudo,vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
 
-**Note: replace "username" with your desired username (e.g. USER=boydm).** Mac and Linux setup without Git:
+**Note: replace "username" with your desired username (e.g. USER=boydm).** 
 
-    wget https://github.com/reed-college/cs-virtualmachine/archive/master.zip
-    unzip master.zip
-    vagrant plugin install vagrant-vbguest
-    vagrant up
-    vagrant ssh
-    USER=username; sudo adduser --gecos "" $USER; sudo usermod -aG sudo,vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
-
-**Note: replace "username" with your desired username (e.g. USER=boydm).** Run the above commands from a terminal or command shell.
-
-The install will take 10-20 minutes to complete.
+The install will take 20-45 minutes to complete.
 
 To use the Ubuntu desktop, logout of the virtual machine and run the following command after the initial install is complete:
     
@@ -118,6 +109,3 @@ The settings are available under the Motherboard and Processor tabs here:
 ![Virtualbox UI](https://www.evernote.com/shard/s258/sh/052a89bf-0343-424c-9b95-7fa03cc7c3de/db4f4ffcb3159fca/res/a39cec16-6e56-4336-a722-ccff5ee724f0/skitch.png?resizeSmall&width=832)
 
 **Note**: I recommend initially setting these values conservatively. Setting the vm memory to half of available memory and cpu count to 1 is a good start. The values can be increased until a performant virtual machine is configured without degrading performance on the host machine.
-    
-    
-
