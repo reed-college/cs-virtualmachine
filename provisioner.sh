@@ -93,6 +93,10 @@ echo 'Gnuplot successfully installed'
 sudo apt install -y gnome-terminal || echo "Terminal installation failed"
 echo 'Gnome terminal successfully installed'
 
+#install man pages for c libraries
+sudo apt install -y manpages-dev manpages-posix-dev || echo "manpage installation failed"
+echo 'man pages installed successfully'
+
 sudo update-locale LANG=en_US.UTF-8
 
 sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade && sudo apt -y autoremove && sudo apt clean
