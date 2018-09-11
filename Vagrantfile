@@ -4,10 +4,7 @@
 dir = Dir.pwd
 vagrant_dir = File.expand_path(File.dirname(__FILE__))
 
-# Vagrantfile API/syntax version.
-VAGRANTFILE_API_VERSION = "2"
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here
   # For a complete reference,  please see the online documentation at docs.vagrantup.com/v2/.
 
