@@ -16,23 +16,36 @@ start_seconds="$(date +%s)"
 
 sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade && sudo apt -y autoremove && sudo apt clean
 
+# Automount fix since vagrant doesn't set the Virtualbox automount flag
+fstab=/etc/fstab
+if ! grep -q "vboxsf" "$fstab" 
+then
+    sudo echo "vboxsf" >> /etc/modules
+    sudo echo "vagrant /vagrant vboxsf defaults 0 0" >> /etc/fstab
+else
+    echo "Vbox entry in fstab exists."
+fi
+
+
 #install git
 sudo apt install -y git || echo "Git installation failed"
 echo 'Git installed successfully!'
 
-#install gcc-8
+#install gcc-7 and g++-7
 sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 sudo apt update
 sudo apt -y install gcc-7 || echo "gcc-7 installation failed" 
 echo 'GCC 7 installed successfully!'
 
-#install gcc-8
+sudo apt -y install g++-7 || echo "g++-7 installation failed" 
+echo 'G++ 7 installed successfully!'
+
+#install gcc-8 and g++-8
 sudo apt -y install gcc-8 || echo "gcc-8 installation failed" 
 echo 'GCC 8 installed successfully!'
 
-#Set gcc-8 as default
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
+sudo apt -y install g++-8 || echo "g++-8 installation failed" 
+echo 'G++ 8 installed successfully!'
 
 #install valgrind
 sudo apt install -y valgrind || echo "valgrind installation failed"
@@ -103,6 +116,10 @@ sudo apt install -y manpages-dev manpages-posix-dev || echo "manpage installatio
 echo 'man pages installed successfully'
 
 sudo update-locale LANG=en_US.UTF-8
+
+#Set gcc-8 as default
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
 
 sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade && sudo apt -y autoremove && sudo apt clean
 
