@@ -9,6 +9,7 @@
 # by specifying '--no-provision'.
 set -e
 DEBIAN_FRONTEND=noninteractive
+
 # By storing the date now, we can calculate the duration of provisioning at the
 # end of this script.
 start_seconds="$(date +%s)"
@@ -22,6 +23,10 @@ echo 'Git installed successfully!'
 #install gcc-8
 sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 sudo apt update
+sudo apt -y install gcc-7 || echo "gcc-7 installation failed" 
+echo 'GCC 7 installed successfully!'
+
+#install gcc-8
 sudo apt -y install gcc-8 || echo "gcc-8 installation failed" 
 echo 'GCC 8 installed successfully!'
 
