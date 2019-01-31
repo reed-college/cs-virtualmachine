@@ -88,7 +88,7 @@ Note, in both cases, the files you saved in the cs-virtualmachine directory are 
 
 # Troubleshooting
 
-## On Mac, if you see the error "xcrun: error: invalid active developer path" when running "git clone"
+## On Mac, "git clone" fails with "xcrun: error: invalid active developer path"
 Please run the following command:
     
     xcode-select --install
