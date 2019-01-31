@@ -88,9 +88,10 @@ Note, in both cases, the files you saved in the cs-virtualmachine directory are 
 
 # Troubleshooting
 
-## xcrun: error: invalid active developer path on Mac
+## On Mac, "xcrun: error: invalid active developer path"
 Please run the following command:
-xcode-select --install
+    
+    xcode-select --install
 
 ## GUI does not load after installation
 You may not be on the latest version of VirtualBox's Guest Additions. First, do a "git pull" to make sure you are on the latest version of this repository. Then run the following command:
