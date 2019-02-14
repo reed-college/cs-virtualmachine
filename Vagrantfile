@@ -1,44 +1,66 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-dir = Dir.pwd
-vagrant_dir = File.expand_path(File.dirname(__FILE__))
-
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
 Vagrant.configure("2") do |config|
-  # All Vagrant configuration is done here
-  # For a complete reference,  please see the online documentation at docs.vagrantup.com/v2/.
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
 
-  # Default Ubuntu 18.04 Box 
-  config.vm.box = "bento/ubuntu-18.04"
-  config.vm.hostname = "ubuntu"
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "boydmreed/csreedvm"
+  config.vm.box_version = "1.0"
 
-  # Forward Agent
-  #
-  # If true, then any SSH connections made will enable agent forwarding.
-  # Default value: false
+  # Disable automatic box update checking. If you disable this, then
+  # boxes will only be checked for updates when the user runs
+  # `vagrant box outdated`. This is not recommended.
+  # config.vm.box_check_update = false
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+
   config.ssh.forward_agent = true
 
-  # Provision the base Ubuntu box with the Reed CS tools
-  config.vm.provision "shell", path: "provisioner.sh"
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine and only allow access
+  # via 127.0.0.1 to disable public access
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
 
-  # Make the synced folder writable for any user in the vagrant group
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  # config.vm.network "private_network", ip: "192.168.33.10"
+
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+  # config.vm.network "public_network"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
   config.vm.synced_folder ".", "/vagrant", mount_options: ["dmode=775,fmode=774"]
 
-  ### Virtualbox specific configurations are below.
-  # Additional options describer here http://docs.vagrantup.com/v2/virtualbox/configuration.html
-  config.vm.provider :virtualbox do |vb|
-  # Set a custom name in the Virtual Box interface  
-    vb.name = "Reed CS VirtualMachine"
-  # Boot with graphical user interface ("GUI"), this can be commented out if you
-  # prefer a non-GUI vm
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  #
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "CS Reed Virtualmachine"
+  #   # Display the VirtualBox GUI when booting the machine
     vb.gui = true
-  # You can increase the memory and cpu allocated to the virtual machine.
-  # Note: ensure that the values are appropriate for your hardware. For instance,
-  # you should ideally set the memory and cpu count to half of your hardware.
-  # Larger values can significantly degrade performance on your host machine.
+  #
+  #   # Customize the amount of memory on the VM:
     vb.memory = "4096"
     vb.cpus = "1"
-  # Increase video memory and turn on 3d accelaration.
+      # Increase video memory and turn on 3d accelaration.
     vb.customize ["modifyvm", :id, "--vram", "128"]
     vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
