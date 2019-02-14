@@ -16,7 +16,7 @@ Basic setup:
 
 *   Install [VirtualBox](https://www.virtualbox.org) (you will need at least version 6.0 of VirtualBox for the setup to work correctly)
 *   Install [Vagrant](https://www.vagrantup.com/downloads.html) (recommendation is to use the download links on the Vagrant site instead of any package manager versions)
-*   If you are using Windows install the [Visual C++ 2010 Redistributable Package](http://www.microsoft.com/en-us/download/details.aspx?id=8328) and Git for Windows (https://github.com/git-for-windows/git/releases/download/v2.18.0.windows.1/Git-2.18.0-64-bit.exe)
+*   If you are using Windows install the [Visual C++ 2010 Redistributable Package](http://www.microsoft.com/en-us/download/details.aspx?id=8328) and Git for Windows (https://git-scm.com/download/win)
 
 # Installation of the Virtual Machine
 
@@ -49,13 +49,13 @@ Any files saved in the cs-virtualmachine directory will be visible inside the vi
 "vagrant up" starts the machine.
 
     vagrant destroy
-"vagrant destroy" will remove all traces of the guest machine from your system. It'll stop the guest machine, power it down, and remove all of the guest hard disks. Again, when you are ready to work again, just issue a vagrant up. The benefit of this is that no cruft is left on your machine. The disk space and RAM consumed by the guest machine is reclaimed and your host machine is left clean. The downside is that "vagrant up" to get working again will take some extra time since it has to reimport the machine and re-provision it.
+"vagrant destroy" will remove all traces of the guest machine from your system. It'll stop the guest machine, power it down, and remove all of the guest hard disks. Again, when you are ready to work again, just issue a vagrant up. The benefit of this is that no cruft is left on your machine. The disk space and RAM consumed by the guest machine is reclaimed and your host machine is left clean. The downside is that "vagrant up" to get working again will take some extra time since it has to reimport the machine.
 
     vagrant ssh
 SSHs into the virtual machine as the vagrant user. 
 
     vagrant reload
-The equivalent of running a halt followed by an up. This command is necessary to pick up changes made to the Vagrantfile. Additionally, changes to the provisioning script can be applied by adding the --provision flag.
+The equivalent of running a halt followed by an up. This command is necessary to pick up changes made to the Vagrantfile.
  
 # Updating
 
@@ -65,16 +65,12 @@ The repository can be updated using standard [Git workflows](https://help.github
 
     git pull
 
-To install only the new packages, you run the following command:
-
-    vagrant reload --provision
-
 To completely rebuild the virtual machine, you run the following commands:
 
     vagrant destroy
     vagrant up
     
-Note, in both cases, the files you saved in the cs-virtualmachine directory are not affected by the "vagrant destroy" command.
+Note, the files you saved in the cs-virtualmachine directory are not affected by the "vagrant destroy" command.
 
 # Troubleshooting
 
