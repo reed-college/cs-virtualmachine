@@ -28,24 +28,14 @@ On Mac and Linux, open a terminal window and run the following commands. On Wind
     cd cs-virtualmachine
     vagrant plugin install vagrant-vbguest
     vagrant up
-    vagrant ssh
-    USER=username; sudo adduser --gecos "" $USER; sudo usermod -aG sudo,vagrant $USER; sudo ln -s /vagrant /home/$USER/; sudo chown $USER:$USER /home/$USER/vagrant
 
-**Note: replace "username" with your desired username (e.g. USER=boydm).** 
-
-The install will take 20-45 minutes to complete.
-
-To use the Ubuntu desktop, logout of the virtual machine and run the following command after the initial install is complete:
-    
-    vagrant reload
-
-This will restart the virtual machine, and you will be given the Ubuntu login screen.
+The install will take 20-45 minutes to complete. Once complete, you can login with the username and password vagrant/vagrant.
 
 You can also edit the [`Vagrantfile`](https://www.vagrantup.com/docs/vagrantfile/) to change the amount of memory and cores used by the virtual machine. The [VirtualBox provider reference](https://www.vagrantup.com/docs/virtualbox/configuration.html) has more details.
 
 # Shared Folder
 
-Any files saved in the cs-virtualmachine directory will be visible inside the virtual machine. On the virtual machine, the files are available in the ~/vagrant directory.
+Any files saved in the cs-virtualmachine directory will be visible inside the virtual machine. On the virtual machine, the files are available in the /vagrant directory.
 
 # Basic Commands
 
