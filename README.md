@@ -74,8 +74,11 @@ Note, the files you saved in the cs-virtualmachine directory are not affected by
 
 # Troubleshooting
 
+## Virtualbox installation fails on Mac.
+Virtualbox has to install some kernel extensions to work properly. Mac's Security and Privacy settings block this by default. Go to System Preferences > Security & Privacy and click "Allow" for the Oracle America software.
+
 ## On Mac, "git clone" fails with "xcrun: error: invalid active developer path"
-Please run the following command:
+Please run the following command to install the necessary command line tools for Mac:
     
     xcode-select --install
 
@@ -88,14 +91,6 @@ You may not be on the latest version of VirtualBox's Guest Additions. First, do 
 ## Sluggish performance inside the virtual machine
 The virtual machine is initially configured with quite low CPU and memory allocation. If you have more powerful hardware, you can get better performance from the virtual machine by increasing its CPU and memory.
 
-#### If you start and stop the machine using vagrant commands from the command line ####
-
 The settings can be modified in the Vagrantfile by changing vb.cpus and vb.memory. Starting the vm using vagrant up will overwrite any settings you have made in the Virtualbox UI.
-
-
-#### If you start and stop the virtual machine in the Virtualbox UI ####
-
-The settings are available under the Motherboard and Processor tabs here:
-![Virtualbox UI](https://www.evernote.com/shard/s258/sh/052a89bf-0343-424c-9b95-7fa03cc7c3de/db4f4ffcb3159fca/res/a39cec16-6e56-4336-a722-ccff5ee724f0/skitch.png?resizeSmall&width=832)
 
 **Note**: I recommend initially setting these values conservatively. Setting the vm memory to half of available memory and cpu count to 1 is a good start. The values can be increased until a performant virtual machine is configured without degrading performance on the host machine.
