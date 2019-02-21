@@ -97,4 +97,4 @@ The settings can be modified in the Vagrantfile by changing vb.cpus and vb.memor
 
 
 # Building Updated Boxes
-Use the steps here (https://scotch.io/tutorials/how-to-create-a-vagrant-base-box-from-an-existing-one) to create the updated box, pushing all the changes to this Git repo. Then upload the nex box image to Vagrant Cloud by following these steps: https://www.vagrantup.com/docs/vagrant-cloud/boxes/create.html
+Use the steps here (https://scotch.io/tutorials/how-to-create-a-vagrant-base-box-from-an-existing-one) to create the updated box, pushing all the changes to this Git repo. Then upload the nex box version to Vagrant Cloud by following these steps: https://www.vagrantup.com/docs/vagrant-cloud/boxes/create.html
