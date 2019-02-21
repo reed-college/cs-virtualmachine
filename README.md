@@ -94,3 +94,7 @@ The virtual machine is initially configured with quite low CPU and memory alloca
 The settings can be modified in the Vagrantfile by changing vb.cpus and vb.memory. Starting the vm using vagrant up will overwrite any settings you have made in the Virtualbox UI.
 
 **Note**: I recommend initially setting these values conservatively. Setting the vm memory to half of available memory and cpu count to 1 is a good start. The values can be increased until a performant virtual machine is configured without degrading performance on the host machine.
+
+
+# Building Updated Boxes
+Use the steps here (https://scotch.io/tutorials/how-to-create-a-vagrant-base-box-from-an-existing-one) to create the updated box, pushing all the changes to this Git repo. Then upload the nex box image to Vagrant Cloud by following these steps: https://www.vagrantup.com/docs/vagrant-cloud/boxes/create.html
